@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!221 &22100000
+AnimatorOverrideController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: '[SENEMY] Slime Frozen'
+  m_Controller: {fileID: 9100000, guid: 0d168db32fdff83459c861eff1781fab, type: 2}
+  m_Clips:
+  - m_OriginalClip: {fileID: 7400000, guid: 877c43af2dbc114489b68727a6ffdcf5, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: f1a59173773e54410886d58d8fb49f76, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: ad7c1e000a9284345968a0e7d1ce2d11, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: b821fdf274b2740c396a82f5c31bdddf, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: c3e307621cf28d24bb33f633c57ec055, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: a49a6c10889264640962a036a451853d, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: b8dd75facb213044783e0f4ec2334587, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 25f286f2130bd46e2837d58ade7a292f, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: f976b74fd0ff95a428a1e9d0bcbf128f, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: addafabe4a98949ebb942ae02bbbf4c7, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 6cfe28e539dfa46aab476d17d7928301, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 7c9042bb661f74ed5a346fddb7430ffd, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 0d85354d2e942c74b8319a39701b004c, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: b821fdf274b2740c396a82f5c31bdddf, type: 2}

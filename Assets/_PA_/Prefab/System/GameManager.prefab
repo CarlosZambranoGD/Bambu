@@ -1,0 +1,133 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &181166
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 493458}
+  - component: {fileID: 11405142}
+  - component: {fileID: 11400134}
+  - component: {fileID: 11483550}
+  - component: {fileID: 7692734163795400350}
+  m_Layer: 0
+  m_Name: GameManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &493458
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 181166}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.563, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &11405142
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 181166}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 01d2700ef87d15b40b4daa0a75590fd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  levelType: 0
+  playerNoLimitLife: 0
+  playerUnlimitedBullet: 0
+  forceLoadScene: 0
+  sceneName: story end game
+  playerLayer:
+    serializedVersion: 2
+    m_Bits: 256
+  enemyLayer:
+    serializedVersion: 2
+    m_Bits: 2048
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 512
+  continueCoinCost: 50
+  FadeInEffect: {fileID: 195662, guid: 8934df31d3546f54cb754d5cbbeb5a51, type: 3}
+  FloatingText: {fileID: 166564, guid: 8db5fc80da1e288418f7c55aae2eea25, type: 3}
+  currentCheckpoint: {x: 0, y: 0}
+  isNoLives: 0
+  hideGUI: 0
+--- !u!114 &11400134
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 181166}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0a1051046868c4345a8395f01a603680, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timer: 200
+  alarmTimeLess: 60
+  soundTimeLess: {fileID: 8300000, guid: a4d139ec7066f487c80064c29cca8310, type: 3}
+  soundTimeLessVolume: 0.5
+  soundTimeUp: {fileID: 0}
+  soundTimeUpVolume: 0.5
+--- !u!114 &11483550
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 181166}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e2c27426c23a9a64aa481cdb251e8976, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  beginSoundInMainMenu: {fileID: 0}
+  musicsMenu: {fileID: 0}
+  musicMenuVolume: 0.5
+  musicWorldChoose: {fileID: 0}
+  musicsGame: {fileID: 8300000, guid: 7b7985b628bd445538db1b5f5dc98d7a, type: 3}
+  musicsGameVolume: 0.7
+  soundTutorial: {fileID: 8300000, guid: c1d62df4345ff0343867d3190afd1e16, type: 3}
+  musicFinishPanel: {fileID: 8300000, guid: d0791dbc094e70345b48107e60efb3d1, type: 3}
+  soundRewardedChest: {fileID: 8300000, guid: 830645f03643c419d917caa2de0e5de8, type: 3}
+  soundPurchased: {fileID: 8300000, guid: d0edd3dcbb3d947febbfc612c6f0f7e5, type: 3}
+  soundUpgrade: {fileID: 8300000, guid: efb744f220a546d45aec454b18f0ef39, type: 3}
+  soundNotEnoughCoin: {fileID: 8300000, guid: 617cb0dbcc41c4281b089abace89040f, type: 3}
+  soundClick: {fileID: 8300000, guid: 7320e96c1fa355d429cd961aa0b30a73, type: 3}
+  soundGamefinish: {fileID: 8300000, guid: fe73d10ef7e424bd7949db6baaa931d8, type: 3}
+  soundGameover: {fileID: 8300000, guid: 617cb0dbcc41c4281b089abace89040f, type: 3}
+  soundCheckpoint: {fileID: 0}
+  soundCheckpointVolume: 0.5
+  soundTimeLess: {fileID: 0}
+  soundTimeLessVolume: 0.5
+  soundTimeUp: {fileID: 0}
+  soundTimeUpVolume: 0.5
+--- !u!114 &7692734163795400350
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 181166}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3e718bc665d86414b8e53711c74825ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  FloatingText: {fileID: 1124642983650704, guid: 80738b837bd43824f96b24d6688de4d1,
+    type: 3}
