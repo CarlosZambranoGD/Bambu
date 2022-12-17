@@ -8,7 +8,7 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/_PA_/Scene/Logo Scene.unity
     guid: 2a335923d2b0ca448a428c44fcacac2c
-  - enabled: 0
+  - enabled: 1
     path: Assets/_PA_/Scene/Intro.unity
     guid: df6fab7e88e3f3e47a896e58ff8e1013
   - enabled: 1

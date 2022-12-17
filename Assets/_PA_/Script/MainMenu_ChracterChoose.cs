@@ -1,9 +1,13 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
+using System.IO;
+using System.Reflection;
 
 public class MainMenu_ChracterChoose : MonoBehaviour
 {
+
+	public int productID;
 	[Tooltip("The unique character ID")]
 	public int characterID;
 	public int price;
@@ -13,7 +17,7 @@ public class MainMenu_ChracterChoose : MonoBehaviour
 
 	public Image frameImage;
 	public Sprite frameActive, frameDisative;
-
+	public GameObject popup;
 	public Text pricetxt;
 	public Text state;
 
@@ -29,7 +33,10 @@ public class MainMenu_ChracterChoose : MonoBehaviour
 		if (unlockDefault)
 			isUnlock = true;
 		else
-			isUnlock = PlayerPrefs.GetInt(GlobalValue.Character + characterID, 0) == 1 ? true : false;
+			//isUnlock = PlayerPrefs.GetInt(GlobalValue.Character + characterID, 0) == 1 ? true : false;
+			isUnlock = GlobalValue.character2 >= 1 ? true : false;
+			//GlobalValue.(int).GetType().GetField(GlobalValue.Character + characterID);
+			//isUnlock = GlobalValue) == 1 ? true : false;
 
 		UnlockButton.SetActive(!isUnlock);
 
@@ -63,16 +70,24 @@ public class MainMenu_ChracterChoose : MonoBehaviour
 
 	public void Unlock()
 	{
-		if (GlobalValue.SavedCoins >= price)
+		if (GlobalValue.NZCoins >= price)
 		{
-			GlobalValue.SavedCoins -= price;
-			DoUnlock();
+			Debug.Log("True");
+			var shopping = gameObject.AddComponent<ShoppingAgoratSkin>();
+			shopping.Shop(productID.ToString(), price);
 		}
+		
+		else {
+			popup.SetActive(true);
+			Debug.Log("No te alcanza el dinero");
+		}
+
 	}
 
-	void DoUnlock()
+	public void DoUnlock()
     {
-		PlayerPrefs.SetInt(GlobalValue.Character + characterID, 1);
+		//PlayerPrefs.SetInt(GlobalValue.Character + characterID, 1);
+		GlobalValue.character2 = 1;
 		isUnlock = true;
 		UnlockButton.SetActive(false);
 		SoundManager.PlaySfx(SoundManager.Instance.soundPurchased);

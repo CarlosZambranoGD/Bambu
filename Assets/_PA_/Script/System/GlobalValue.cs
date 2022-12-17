@@ -10,10 +10,16 @@ public class GlobalValue : MonoBehaviour
     public static int totalLevels = -1;
     public static string WorldReached = "WorldReached";
     public static string Coins = "Coins";
+    public static int SavedCoins = 656;
+    public static int NZCoins = 300;
+    public static int character1 = 0;
+    public static int character2 = 0;
+
     public static string Character = "Character";
     public static string ChoosenCharacterID = "choosenCharacterID";
     public static string ChoosenCharacterInstanceID = "ChoosenCharacterInstanceID";
     public static GameObject CharacterPrefab;
+    public static string token = "";
 
     public static bool isSound = true;
     public static bool isMusic = true;
@@ -45,12 +51,10 @@ public class GlobalValue : MonoBehaviour
             PlayerPrefs.SetInt("SaveLives", i);
         }
     }
-
-    public static int SavedCoins
-    {
+/*     {
         get { return PlayerPrefs.GetInt(GlobalValue.Coins, DefaultValue.Instance != null ? DefaultValue.Instance.defaultCoin : 99999); }
         set { PlayerPrefs.SetInt(GlobalValue.Coins, value); }
-    }
+    } */
 
     public static int Bullets
     {

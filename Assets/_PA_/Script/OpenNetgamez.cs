@@ -37,16 +37,7 @@ public class OpenNetgamez : MonoBehaviour
 
     }
     // Start is called before the first frame update
-    public void Open()
-    {
 
-        if(token == "")
-         Application.OpenURL("market://launch?id=" + Data + "&url=" + Data + ".MainActivity&Codigo=NezPanda");
-
-         else if (token == getToken){
-            LoadScene();
-         }
-    }
 
     // Update is called once per frame
     void Update()
