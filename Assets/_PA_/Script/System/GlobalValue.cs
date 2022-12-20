@@ -19,7 +19,7 @@ public class GlobalValue : MonoBehaviour
     public static string ChoosenCharacterID = "choosenCharacterID";
     public static string ChoosenCharacterInstanceID = "ChoosenCharacterInstanceID";
     public static GameObject CharacterPrefab;
-    public static string token = "";
+    public static string token = "";//"e433cb7f368e351d9c875193562a2fb62aec6d653f50d4b60600b8b955b336ff";
 
     public static bool isSound = true;
     public static bool isMusic = true;

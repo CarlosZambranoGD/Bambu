@@ -7,55 +7,59 @@ using SimpleJSON;
 
 public class AuthNetgamez : MonoBehaviour
 {
-
-    public Text log;
+    public GameObject token;
+    public GameObject log;
     //public Text tokenLog;
     string arguments = "";
     string packageName;
-
-    public GameObject NetGamezButton;
     public GameObject Exit;
+
+    public GameObject AgoratInfo;
     // Start is called before the first frame update
 
     void Awake(){
-        Exit.SetActive(false);
+        log.SetActive(false);
+        AgoratInfo.SetActive(false);
     }
 
     void Start()
     {
-
-        try {
+       try {
             AndroidJavaClass UnityPlayer = new AndroidJavaClass("com.unity3d.player.UnityPlayer");
             AndroidJavaObject currentActivity = UnityPlayer.GetStatic<AndroidJavaObject>("currentActivity");
             AndroidJavaObject intent = currentActivity.Call<AndroidJavaObject>("getIntent");
             AndroidJavaObject extras = intent.Call<AndroidJavaObject> ("getExtras"); 
             //text = extras.Call<string> ("getString", "NZtoken");
             arguments = intent.Call<string> ("getDataString");
-
             
+            log.SetActive(true);
             GlobalValue.token = arguments; 
-            log.text = "Obteniendo acesso...";
+            log.GetComponent<Text>().text =  "Obteniendo acesso...";
             //tokenLog.text = "Token: "+GlobalValue.token+ " ---";
+
+            token.GetComponent<Text>().text = "token: " + GlobalValue.token;
+
             if ((GlobalValue.token == "") || (GlobalValue.token == null)) {
-                StartCoroutine(GetNetGamezApp());
+                    log.SetActive(false);
+                    AgoratInfo.SetActive(true);
+                    token.GetComponent<Text>().text = "token: " + GlobalValue.token;
                 }
+    
 
             else {
                 var auth = gameObject.AddComponent<APIRequestNetgamez>();
+                token.GetComponent<Text>().text = "token: " + GlobalValue.token;
             }
-        }
+       }
 
-        catch{
-            Exit.SetActive(true);
-            log.text = "Te pedimos disculpas, para poder ingresar al juego debes usar una cuenta daviplata";
+         catch {
+            AgoratInfo.SetActive(true);
+            token.GetComponent<Text>().text = "token: " + GlobalValue.token;
 
-
-
-            //StartCoroutine(GetNetGamezApp());
         }
     }
 
-    public IEnumerator GetNetGamezApp() 
+/*     public IEnumerator GetNetGamezApp() 
     {
 
         WWWForm form = new WWWForm();
@@ -82,9 +86,9 @@ public class AuthNetgamez : MonoBehaviour
             }
         }
 
-    }
+    } */
     
-     public void Open()
+/*      public void Open()
     {
          StartCoroutine(GetURL());
     }
@@ -94,6 +98,6 @@ public class AuthNetgamez : MonoBehaviour
         Application.OpenURL(packageName);
         Application.Quit();
         Exit.SetActive(true);
-    }
+    } */
 }
 

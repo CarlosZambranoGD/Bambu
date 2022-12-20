@@ -33,12 +33,12 @@ public class APIRequestNetgamez : MonoBehaviour
 
             if(data["Error"] == "-1"){
                 Debug.Log("error");
-                gameObject.GetComponent<AuthNetgamez>().log.text = "Hubo un error al autenticar al usuario.";
+                gameObject.GetComponent<AuthNetgamez>().log.GetComponent<Text>().text = "Hubo un error al autenticar al usuario.";
                 gameObject.GetComponent<AuthNetgamez>().Exit.SetActive(true);
             }
 
             else {
-                gameObject.GetComponent<AuthNetgamez>().log.text = "Obteniendo acceso...";
+                gameObject.GetComponent<AuthNetgamez>().log.GetComponent<Text>().text = "Obteniendo acceso...";
                 for (int i = 0; i < data["ListaObjetos"].Count; i++){
                 JSONNode datos = data["ListaObjetos"][i];      
                     
@@ -54,7 +54,7 @@ public class APIRequestNetgamez : MonoBehaviour
                 }
 
             GlobalValue.NZCoins = saldo;
-            gameObject.GetComponent<AuthNetgamez>().log.text = "Abriendo juego";
+            gameObject.GetComponent<AuthNetgamez>().log.GetComponent<Text>().text = "Abriendo juego";
             yield return new WaitForSeconds(2);
             SceneManager.LoadScene("MainMenu");
 

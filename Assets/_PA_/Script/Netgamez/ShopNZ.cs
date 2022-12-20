@@ -7,33 +7,31 @@ using SimpleJSON;
 public class ShopNZ : MonoBehaviour
 {
     // Start is called before the first frame update
-    public GameObject popup;
-    public static string productID;
-    int productPrice;
+    //public GameObject popup;
+    string serviceID;
+    string precio;
+    string gemas;
+    string correo;
     // Start is called before the first frame update
-    void Start()
-    {
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
     
-    public void Shop(string id, int price){
-        productPrice = price;
-        productID = id;
+    public void Shop(string id, string price, string gems, string email){
+        serviceID = id;
+        precio = price;
+        gemas = gems;
+        correo = email;
+
         StartCoroutine(ShoppingAPI());
 
     }
 
-    public IEnumerator ShoppingAPI() {
+    IEnumerator ShoppingAPI() {
     WWWForm form = new WWWForm();
     form.AddField("metodo", "VenderServicio");
     form.AddField("ID", GlobalValue.token);
     form.AddField("ServicioID", "122333444455555");
-    
+    form.AddField("Correo", correo);
+    form.AddField("Valor", precio);
+    form.AddField("Gemas", gemas);
 
     using (UnityWebRequest www = UnityWebRequest.Post("https://facilservicios.com/servicioDesarrollo.php", form)) {
     
@@ -50,15 +48,21 @@ public class ShopNZ : MonoBehaviour
             JSONNode data = JSON.Parse(www.downloadHandler.text);
             Debug.Log(www.downloadHandler.text);
 
-                if(data["error"]= "1"){
-                   popup = GameObject.Find("MainMenu");
-                  GameObject child = popup.transform.GetChild(7).gameObject;
-                  child.SetActive(true);
+                if(data["error"]== "1"){
+
+                    gameObject.GetComponent<ShopItemUI>().textInfo.color = Color.yellow;
+                    gameObject.GetComponent<ShopItemUI>().textInfo.text = "Ha habido un problema al realizar la compra.";
+                   //popup = GameObject.Find("MainMenu");
+                  //GameObject child = popup.transform.GetChild(7).gameObject;
+                  //child.SetActive(true);
                    // popup.SetActive(false);
                 }
 
-                else {
+                else if (data["Respuesta"] == 1) {
                     Debug.Log("todo OK");
+                    gameObject.GetComponent<ShopItemUI>().textInfo.color = Color.green;
+                    gameObject.GetComponent<ShopItemUI>().textInfo.text = "Se ha realizado la compra satisfactoriamente.";
+                    GlobalValue.NZCoins += int.Parse(gemas);
                 }
             }
         }

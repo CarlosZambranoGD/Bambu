@@ -12,7 +12,7 @@ public class MainMenuHomeScene : MonoBehaviour {
 	public GameObject LoadingScreen;
 	public GameObject Shop;
     public GameObject Settings;
-   [HideInInspector]  public GameObject removeAdBut;
+  // [HideInInspector]  public GameObject removeAdBut;
 
 	SoundManager soundManager;
 
@@ -78,7 +78,7 @@ public class MainMenuHomeScene : MonoBehaviour {
 
     void Update()
     {
-        removeAdBut.gameObject.SetActive(!GlobalValue.RemoveAds);
+        //removeAdBut.gameObject.SetActive(!GlobalValue.RemoveAds);
     }
 
     public void OpenStoreLink()
