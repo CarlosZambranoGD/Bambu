@@ -148,6 +148,9 @@ public class MainMenuHomeScene : MonoBehaviour {
     public Text progressText;
     IEnumerator LoadAsynchronously(string name)
     {
+
+        yield return new WaitForSeconds(5);
+        
         AsyncOperation operation = SceneManager.LoadSceneAsync(name);
         while (!operation.isDone)
         {
@@ -162,6 +165,14 @@ public class MainMenuHomeScene : MonoBehaviour {
     }
 
     public void Exit(){
-		Application.Quit ();
+        try{
+            AndroidJavaObject activity = new AndroidJavaClass("com.unity3d.player.UnityPlayer").GetStatic<AndroidJavaObject>("currentActivity");
+            activity.Call("finish");
+            Application.Quit();  
+        }
+        catch
+        {
+            Application.Quit();  
+        }
 	}
 }

@@ -32,8 +32,8 @@ public class APIRequestNetgamez : MonoBehaviour
             int saldo = 0;
 
             if(data["Error"] == "-1"){
-                Debug.Log("error");
-                gameObject.GetComponent<AuthNetgamez>().log.GetComponent<Text>().text = "Hubo un error al autenticar al usuario.";
+                //Debug.Log(www.downloadHandler.text);
+                gameObject.GetComponent<AuthNetgamez>().log.GetComponent<Text>().text = data["ErrorDescripcion"];
                 gameObject.GetComponent<AuthNetgamez>().Exit.SetActive(true);
             }
 

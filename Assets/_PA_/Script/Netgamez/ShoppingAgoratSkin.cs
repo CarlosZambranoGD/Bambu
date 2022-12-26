@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.Networking;
 using UnityEngine;
+using UnityEngine.UI;
 using SimpleJSON;
 
 public class ShoppingAgoratSkin : MonoBehaviour
@@ -30,10 +31,10 @@ public class ShoppingAgoratSkin : MonoBehaviour
 
     public IEnumerator ShoppingAPI() {
     WWWForm form = new WWWForm();
-    form.AddField("metodo", "IniciarPagos");
+    form.AddField("metodo", "VenderServicio");
     form.AddField("ID", GlobalValue.token);
-    form.AddField("ProductoID", productID);
-    form.AddField("PrimerNombre", "nombre");
+    form.AddField("ServicioID", productID);
+    /* form.AddField("PrimerNombre", "nombre");
     form.AddField("SegundoNombre", "segundo nombre");
     form.AddField("PrimerApellido", "apellido");
     form.AddField("SegundoApellido", "segundo");
@@ -42,7 +43,7 @@ public class ShoppingAgoratSkin : MonoBehaviour
     form.AddField("Departamento", "antioquia");
     form.AddField("Ciudad", "Medellin");
     form.AddField("Direccion", "cr 0 # 1 - 0");
-    form.AddField("Pasarela", "NetGamezMonedas"); 
+    form.AddField("Pasarela", "NetGamezMonedas");  */
     
 
     using (UnityWebRequest www = UnityWebRequest.Post("https://facilservicios.com/servicioDesarrollo.php", form)) {
@@ -65,6 +66,9 @@ public class ShoppingAgoratSkin : MonoBehaviour
                     Debug.Log("true shop");
                     popup = GameObject.Find("MainMenu");
                     GameObject child = popup.transform.GetChild(7).gameObject;
+                    var image = child.transform.GetChild(0).gameObject;
+                    var popuptext =image.transform.GetChild(0).gameObject;
+                    popuptext.GetComponent<Text>().text = data["ErrorDescripcion"];
                     child.SetActive(true);
                     // popup.SetActive(false);
                 }

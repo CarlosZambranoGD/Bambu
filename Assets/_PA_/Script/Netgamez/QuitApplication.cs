@@ -4,19 +4,15 @@ using UnityEngine;
 
 public class QuitApplication : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        DontDestroyOnLoad(gameObject);
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     public void Quit(){
-        Application.Quit();
+        try{
+            AndroidJavaObject activity = new AndroidJavaClass("com.unity3d.player.UnityPlayer").GetStatic<AndroidJavaObject>("currentActivity");
+            activity.Call("finish");
+            Application.Quit();  
+        }
+        catch
+        {
+            Application.Quit();  
+        }
     }
 }

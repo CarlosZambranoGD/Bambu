@@ -42,16 +42,18 @@ public class ShopNZ : MonoBehaviour
         if (www.result != UnityWebRequest.Result.Success) {
                 Debug.Log(www.result.ToString());
                 Debug.Log(www.error);
+                gameObject.GetComponent<ShopItemUI>().textInfo.color = Color.red;
+                gameObject.GetComponent<ShopItemUI>().textInfo.text = "Ha ocurrido un error en la conexión con el servicio.";
             }
 
         else {
             JSONNode data = JSON.Parse(www.downloadHandler.text);
             Debug.Log(www.downloadHandler.text);
 
-                if(data["error"]== "1"){
+                if(data["Error"]== 1){
 
                     gameObject.GetComponent<ShopItemUI>().textInfo.color = Color.yellow;
-                    gameObject.GetComponent<ShopItemUI>().textInfo.text = "Ha habido un problema al realizar la compra.";
+                    gameObject.GetComponent<ShopItemUI>().textInfo.text = data["ErrorDescripcion"];
                    //popup = GameObject.Find("MainMenu");
                   //GameObject child = popup.transform.GetChild(7).gameObject;
                   //child.SetActive(true);

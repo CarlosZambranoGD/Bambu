@@ -18,7 +18,7 @@ public class AuthNetgamez : MonoBehaviour
     // Start is called before the first frame update
 
     void Awake(){
-        log.SetActive(false);
+        log.SetActive(true);
         AgoratInfo.SetActive(false);
     }
 
@@ -31,9 +31,9 @@ public class AuthNetgamez : MonoBehaviour
             AndroidJavaObject extras = intent.Call<AndroidJavaObject> ("getExtras"); 
             //text = extras.Call<string> ("getString", "NZtoken");
             arguments = intent.Call<string> ("getDataString");
+            GlobalValue.token = arguments; 
             
             log.SetActive(true);
-            GlobalValue.token = arguments; 
             log.GetComponent<Text>().text =  "Obteniendo acesso...";
             //tokenLog.text = "Token: "+GlobalValue.token+ " ---";
 
@@ -53,9 +53,9 @@ public class AuthNetgamez : MonoBehaviour
        }
 
          catch {
+            log.SetActive(false);
             AgoratInfo.SetActive(true);
             token.GetComponent<Text>().text = "token: " + GlobalValue.token;
-
         }
     }
 

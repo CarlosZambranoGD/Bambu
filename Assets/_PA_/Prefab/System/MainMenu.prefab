@@ -6214,7 +6214,6 @@ MonoBehaviour:
   LoadingScreen: {fileID: 7701033248284346532}
   Shop: {fileID: 8358221100394336948}
   Settings: {fileID: 8358221100095457587}
-  removeAdBut: {fileID: 8358221101893860617}
   soundImage: {fileID: 5786087272523742641}
   musicImage: {fileID: 4280663513755155682}
   soundImageOn: {fileID: 8977495666812379856, guid: 2fa86f508409d40fd80420dde8fb5f63,
