@@ -35,7 +35,7 @@ public class Menu_GUI : MonoBehaviour {
         stars[1].SetActive(false);
         stars[2].SetActive(false);
 
-        levelName.text = GameManager.Instance.levelType == LEVELTYPE.Normal ? "Level " + GlobalValue.levelPlaying : "BOSS FIGHT";
+        levelName.text = GameManager.Instance.levelType == LEVELTYPE.Normal ? "Nivel " + GlobalValue.levelPlaying : "Pelea con Jefe";
     }
 
     private void OnEnable()

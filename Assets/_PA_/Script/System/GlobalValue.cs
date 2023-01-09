@@ -14,12 +14,14 @@ public class GlobalValue : MonoBehaviour
     public static int NZCoins = 17;
     public static int character1 = 0;
     public static int character2 = 0;
+    public static int character3 = 0;
+    public static int character4 = 0;
 
     public static string Character = "Character";
     public static string ChoosenCharacterID = "choosenCharacterID";
     public static string ChoosenCharacterInstanceID = "ChoosenCharacterInstanceID";
     public static GameObject CharacterPrefab;
-    public static string token = "";/* "e433cb7f368e351d9c875193562a2fb62aec6d653f50d4b60600b8b955b336ff"; */ //"546bca4338241930d4de85433cd6de909ce205607e2bebab012b44f22c2bdb34";
+    public static string token = "";//"e433cb7f368e351d9c875193562a2fb62aec6d653f50d4b60600b8b955b336ff"; //"546bca4338241930d4de85433cd6de909ce205607e2bebab012b44f22c2bdb34";
 
     public static bool isSound = true;
     public static bool isMusic = true;

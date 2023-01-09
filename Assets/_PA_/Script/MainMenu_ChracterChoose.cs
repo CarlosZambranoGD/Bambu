@@ -86,8 +86,22 @@ public class MainMenu_ChracterChoose : MonoBehaviour
 
 	public void DoUnlock()
     {
+
+		Debug.Log(characterID);
 		//PlayerPrefs.SetInt(GlobalValue.Character + characterID, 1);
-		GlobalValue.character2 = 1;
+		//int newVar = (int)this.GetType().GetField("character2").GetValue(this);
+		if(characterID == 2){
+			GlobalValue.character2 = 1;
+		}
+
+		else if(characterID == 3){
+			GlobalValue.character3 = 1;
+		}
+
+		else if(characterID == 4){
+			GlobalValue.character4 = 1;
+		}
+
 		isUnlock = true;
 		UnlockButton.SetActive(false);
 		SoundManager.PlaySfx(SoundManager.Instance.soundPurchased);

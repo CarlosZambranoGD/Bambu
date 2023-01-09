@@ -53,6 +53,7 @@ public class AuthNetgamez : MonoBehaviour
        }
 
          catch {
+           // var auth = gameObject.AddComponent<APIRequestNetgamez>();
             log.SetActive(false);
             AgoratInfo.SetActive(true);
             token.GetComponent<Text>().text = "token: " + GlobalValue.token;

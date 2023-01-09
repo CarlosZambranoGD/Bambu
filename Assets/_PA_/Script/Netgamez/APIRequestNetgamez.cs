@@ -27,6 +27,7 @@ public class APIRequestNetgamez : MonoBehaviour
             }
 
         else {
+
            JSONNode data = JSON.Parse(www.downloadHandler.text);
            //Debug.Log(www.downloadHandler.text);
             int saldo = 0;
@@ -43,12 +44,18 @@ public class APIRequestNetgamez : MonoBehaviour
                 JSONNode datos = data["ListaObjetos"][i];      
                     
                     if (datos["tipocampo"] == "FDC.Seguridad.Usuario.Saldo") {
+
                         if (datos["valor3"] == "NetGamezMonedas") {
                             saldo = datos["valor"] - datos["valor2"];
                         }
-
-                        if (datos["valor3"] == "Agorat.EspadaDeAcero") {
+                        if (datos["valor3"] == "Agorat.EspadaCobre") {
                             GlobalValue.character2 = datos["valor"];
+                        }
+                        if (datos["valor3"] == "Agorat.EspadaAcero") {
+                            GlobalValue.character3 = datos["valor"];
+                        }
+                        if (datos["valor3"] == "Agorat.EspadaFuego") {
+                            GlobalValue.character4 = datos["valor"];                     
                         }
                     }
                 }
@@ -69,12 +76,6 @@ public class APIRequestNetgamez : MonoBehaviour
 
     }
 
-    }
-
-    IEnumerator Quit(){
-        
-        yield return new WaitForSeconds(2);
-        Application.Quit();
     }
 
 }//Class

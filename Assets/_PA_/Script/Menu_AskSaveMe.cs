@@ -9,7 +9,7 @@ public class Menu_AskSaveMe : MonoBehaviour
     public Text timerTxt;
     public Image timerImage;
 
-    float timer = 3;
+    float timer = 5;
     float timerCountDown = 0;
 
     public Button btnSaveByCoin;

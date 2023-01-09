@@ -9,11 +9,11 @@ public class Menu_StartScreen : MonoBehaviour {
     {
         if (GlobalValue.levelPlaying == -1)
         {
-            worldTxt.text = "TEST GAMEPLAY";
+            worldTxt.text = "Nivel de prueba";
         }
         else
         {
-            worldTxt.text = "LEVEL: " + GlobalValue.levelPlaying;
+            worldTxt.text = "Nivel: " + GlobalValue.levelPlaying;
         }
     }
 }

@@ -29,7 +29,7 @@ public class GameManager : MonoBehaviour
     public bool isWatchingAd { get; set; }
 
     [Header("CONTINUE GAME OPTION")]
-    public int continueCoinCost = 100;
+    public int continueCoinCost = 200;
 
     public bool canBeSave()
     {
