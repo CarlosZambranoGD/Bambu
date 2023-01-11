@@ -86,7 +86,7 @@ public class MeleeAttack : MonoBehaviour
                 if (hit.collider.gameObject.layer == LayerMask.NameToLayer("Enemies"))
                 {
                     if (isCritical)
-                        FloatingTextManager.Instance.ShowText(finalDamage * 2 + "\nCritical!", Vector2.up * 1f, Color.white, hit.transform.position,2f);
+                        FloatingTextManager.Instance.ShowText(finalDamage * 2 + "\nCritico!", Vector2.up * 1f, Color.white, hit.transform.position,2f);
                     else
                         FloatingTextManager.Instance.ShowText(finalDamage + "", Vector2.up * 1f, Color.white, hit.transform.position);
 

@@ -98,7 +98,7 @@ public class GlobalValue : MonoBehaviour
 
     public static int LevelHighest
     {
-        get { return PlayerPrefs.GetInt("LevelHighest", 2); }
+        get { return PlayerPrefs.GetInt("LevelHighest", 1); }
         set { PlayerPrefs.SetInt("LevelHighest", value); }
     }
 

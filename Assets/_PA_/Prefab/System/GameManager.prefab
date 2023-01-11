@@ -30,9 +30,10 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0.563, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &11405142
 MonoBehaviour:
@@ -60,7 +61,7 @@ MonoBehaviour:
   groundLayer:
     serializedVersion: 2
     m_Bits: 512
-  continueCoinCost: 50
+  continueCoinCost: 200
   FadeInEffect: {fileID: 195662, guid: 8934df31d3546f54cb754d5cbbeb5a51, type: 3}
   FloatingText: {fileID: 166564, guid: 8db5fc80da1e288418f7c55aae2eea25, type: 3}
   currentCheckpoint: {x: 0, y: 0}
