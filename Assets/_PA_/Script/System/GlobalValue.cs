@@ -46,7 +46,7 @@ public class GlobalValue : MonoBehaviour
 
     public static int SaveLives
     {
-        get { return PlayerPrefs.GetInt("SaveLives", 6); }
+        get { return PlayerPrefs.GetInt("SaveLives", 3); }
         set
         {
             int i = Mathf.Max(value, 0);

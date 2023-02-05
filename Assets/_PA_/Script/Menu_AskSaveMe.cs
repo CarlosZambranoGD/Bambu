@@ -9,13 +9,17 @@ public class Menu_AskSaveMe : MonoBehaviour
     public Text timerTxt;
     public Image timerImage;
 
-    float timer = 5;
+    public float timer = 8;
     float timerCountDown = 0;
 
     public Button btnSaveByCoin;
     public Button btnWatchVideoAd;
 
+    public GameObject RewardedAdObj;
+
     float beginTime;
+
+    public static Menu_AskSaveMe instance;
 
     void OnEnable()
     {
@@ -30,7 +34,7 @@ public class Menu_AskSaveMe : MonoBehaviour
             Time.timeScale = 0;
             btnSaveByCoin.interactable = GlobalValue.SavedCoins >= GameManager.Instance.continueCoinCost;
 #if UNITY_ANDROID || UNITY_IOS
-            btnWatchVideoAd.interactable = AdsManager.Instance && AdsManager.Instance.isRewardedAdReady();
+            //btnWatchVideoAd.interactable = AdsManager.Instance && AdsManager.Instance.isRewardedAdReady();
 #else
             btnWatchVideoAd.interactable = false;
             btnWatchVideoAd.gameObject.SetActive(false);
@@ -44,6 +48,17 @@ public class Menu_AskSaveMe : MonoBehaviour
             beginTime = Time.realtimeSinceStartup;
             //StartCoroutine(CountingDownCo());
         }
+
+
+        if(GlobalValue.SavedCoins < GameManager.Instance.continueCoinCost)
+        {
+            btnSaveByCoin.interactable = false;
+        }
+        else
+        {
+            btnSaveByCoin.interactable = true;
+        }
+
     }
 
     private void Update()
@@ -85,27 +100,33 @@ public class Menu_AskSaveMe : MonoBehaviour
     //    }
     //}
 
-    
+    private void Awake()
+    {
+        instance = this;
+    }
 
     public void SaveByCoin()
     {
         SoundManager.Click();
         GlobalValue.SavedCoins -= GameManager.Instance.continueCoinCost;
+        GlobalValue.SaveLives += 1;
         Continue();
     }
 
     public void WatchVideoAd()
     {
         SoundManager.Click();
-        AdsManager.AdResult += AdsManager_AdResult;
-        AdsManager.Instance.ShowRewardedAds();
+        RewardedAdObj.SetActive(true);
+        btnWatchVideoAd.gameObject.SetActive(false);
+       // AdsManager.AdResult += AdsManager_AdResult;
+       // AdsManager.Instance.ShowRewardedAds();
         //reset to avoid play Unity video ad when finish game
-        AdsManager.Instance.ResetCounter(); 
+      //  AdsManager.Instance.ResetCounter(); 
     }
 
     private void AdsManager_AdResult(bool isSuccess, int rewarded)
     {
-        AdsManager.AdResult -= AdsManager_AdResult;
+       // AdsManager.AdResult -= AdsManager_AdResult;
         if (isSuccess)
         {
             GlobalValue.SaveLives += 1;
@@ -113,7 +134,7 @@ public class Menu_AskSaveMe : MonoBehaviour
         }
     }
 
-    void Continue()
+   public void Continue()
     {
         Time.timeScale = 1;
         GameManager.Instance.Continue();

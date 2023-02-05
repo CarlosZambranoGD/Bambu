@@ -49,6 +49,7 @@ public class MenuManager : MonoBehaviour
         if (!GlobalValue.isMusic)
             SoundManager.MusicVolume = 0;
 
+        if(passLevelButton != null)
         passLevelButton.SetActive(GameMode.Instance && GameMode.Instance.showPassLevelButton);
     }
 
@@ -197,8 +198,8 @@ public class MenuManager : MonoBehaviour
     {
         GUI.SetActive(false);
         yield return new WaitForSeconds(time);
-        if (AdsManager.Instance)
-            AdsManager.Instance.ShowNormalAd(GameManager.GameState.Finish);
+        //if (AdsManager.Instance)
+        //    AdsManager.Instance.ShowNormalAd(GameManager.GameState.Finish);
         yield return new WaitForSeconds(0.2f);
 
         if (GameManager.Instance.forceLoadScene)
@@ -224,7 +225,7 @@ public class MenuManager : MonoBehaviour
 
         //show ads
         Gameover.SetActive(true);
- 
+        GlobalValue.SaveLives--;
     }
 
     public void ForceFinishLevel()

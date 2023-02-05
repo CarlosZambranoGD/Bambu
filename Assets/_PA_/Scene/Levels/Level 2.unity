@@ -3502,14 +3502,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 11400134, guid: 2695c4f01440e024e9a37a31a3a761f5, type: 3}
-      propertyPath: LevelMaps.Array.size
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 11405142, guid: 2695c4f01440e024e9a37a31a3a761f5, type: 3}
-      propertyPath: playGameMusic
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: 2695c4f01440e024e9a37a31a3a761f5, type: 3}

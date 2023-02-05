@@ -5,14 +5,55 @@ using UnityEngine.UI;
 
 public class Menu_Gameover : MonoBehaviour {
     public GameObject btnNext;
+    public GameObject btnTry;
+    public GameObject btnAds;
 
+    public GameObject RewardedAdObj;
+
+    public static Menu_Gameover instance;
+
+
+    public GameObject AskSaveMe;
+
+    public void OnEnable()
+    {
+        Debug.Log("GameOver Activado, Vidas: " + GlobalValue.SaveLives);
+
+        if(GlobalValue.SaveLives <= 0)
+        {
+            AskSaveMe.SetActive(true);
+        }
+
+
+    }
     private void Awake()
     {
         btnNext.SetActive(GlobalValue.levelPlaying < GlobalValue.LevelHighest);
+
+        if(GlobalValue.SaveLives <= 0)
+        {
+            btnTry.SetActive(false);
+            btnAds.SetActive(true);
+        }
+        else
+        {
+            btnTry.SetActive(true);
+            btnAds.SetActive(false);
+        }
+
+        instance = this;
+
     }
 
     public void TryAgain()
     {
         GameManager.Instance.ResetLevel();
     }
+
+    public void Ad_RBton()
+    {
+        btnAds.SetActive(false);
+        RewardedAdObj.SetActive(true);
+    }
+
 }

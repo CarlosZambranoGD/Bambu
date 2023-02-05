@@ -29,11 +29,11 @@ public class GameManager : MonoBehaviour
     public bool isWatchingAd { get; set; }
 
     [Header("CONTINUE GAME OPTION")]
-    public int continueCoinCost = 200;
+    public int continueCoinCost = 550;
 
     public bool canBeSave()
     {
-        return (GlobalValue.SavedCoins >= continueCoinCost) || (AdsManager.Instance && AdsManager.Instance.isRewardedAdReady());
+        return GlobalValue.SavedCoins >= continueCoinCost;
     }
 
     public GameObject FadeInEffect;
@@ -265,10 +265,10 @@ public class GameManager : MonoBehaviour
         if (State == GameState.Dead)
             yield break;
 
-        if (State != GameState.Dead && State != GameState.Waiting && AdsManager.Instance)
-        {
-            AdsManager.Instance.ShowNormalAd(GameManager.GameState.Dead);
-        }
+        //if (State != GameState.Dead && State != GameState.Waiting && AdsManager.Instance)
+        //{
+        //    AdsManager.Instance.ShowNormalAd(GameManager.GameState.Dead);
+        //}
 
         if (!forceGameOver && canBeSave())
         {

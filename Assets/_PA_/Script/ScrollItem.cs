@@ -12,6 +12,8 @@ public class ScrollItem : MonoBehaviour, IListener
     
     bool isCollected = false;
     
+
+
     //called by Player
     public void Collect()
     {
@@ -46,7 +48,7 @@ public class ScrollItem : MonoBehaviour, IListener
 
     void CheckCollected()
     {
-        //Debug.LogError("Check star");
+        Debug.LogError("Check star");
         if (GameMode.Instance == null)
             return;
 
@@ -56,7 +58,18 @@ public class ScrollItem : MonoBehaviour, IListener
         {
             Menu_GUI.Instance.ScrollCollectAnim(ID, true);
             Destroy(gameObject);
+
+           
+                
+
         }
+    }
+
+
+    public void OnDestroy()
+    {
+        Debug.Log("Destroing Star");
+        Stars_Manager.instance.AddStar();
     }
 
     public void ISuccess()
