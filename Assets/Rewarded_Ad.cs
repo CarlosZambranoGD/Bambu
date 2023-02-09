@@ -10,6 +10,7 @@ public class Rewarded_Ad : MonoBehaviour
 {
     private RewardedAd rewardedAd;
     bool AdShowed;
+    public string ad_ID = "ca-app-pub-3940256099942544/5224354917";
 
     public void Start()
     {
@@ -40,7 +41,7 @@ public class Rewarded_Ad : MonoBehaviour
     {
         string adUnitId;
 #if UNITY_ANDROID
-        adUnitId = "ca-app-pub-3940256099942544/5224354917";
+        adUnitId = ad_ID;
 #elif UNITY_IPHONE
             adUnitId = "ca-app-pub-3940256099942544/1712485313";
 #else

@@ -201,6 +201,11 @@ PrefabInstance:
       propertyPath: ShowAd
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2662627891220682381, guid: 0e004740d09e7ac4a819247507a8bd3e,
+        type: 3}
+      propertyPath: showAd
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2662627891220682382, guid: 0e004740d09e7ac4a819247507a8bd3e,
         type: 3}
       propertyPath: m_Name

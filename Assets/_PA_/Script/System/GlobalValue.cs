@@ -25,6 +25,8 @@ public class GlobalValue : MonoBehaviour
 
     public static bool isSound = true;
     public static bool isMusic = true;
+
+    public static int adsCount;
     
         public static bool isOpenRateButton
     {
