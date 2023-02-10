@@ -12,6 +12,7 @@ public class Menu_GUI : MonoBehaviour {
     bool isScroll1Collected, isScroll2Colltected, isScroll3Collected;
     public GameObject[] stars;
     public Text timerText;
+    public GameObject AdsCountObj;  // panel de contador para recompensa por ver 3 videos seguidos
     private void Awake()
     {
         Instance = this;

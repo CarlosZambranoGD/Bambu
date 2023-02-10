@@ -198,6 +198,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2662627891220682381, guid: 0e004740d09e7ac4a819247507a8bd3e,
         type: 3}
+      propertyPath: ad_ID
+      value: ca-app-pub-2773744325264902/2119969095
+      objectReference: {fileID: 0}
+    - target: {fileID: 2662627891220682381, guid: 0e004740d09e7ac4a819247507a8bd3e,
+        type: 3}
       propertyPath: ShowAd
       value: 1
       objectReference: {fileID: 0}
@@ -205,6 +210,11 @@ PrefabInstance:
         type: 3}
       propertyPath: showAd
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2662627891220682381, guid: 0e004740d09e7ac4a819247507a8bd3e,
+        type: 3}
+      propertyPath: cadaXparaAds
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 2662627891220682382, guid: 0e004740d09e7ac4a819247507a8bd3e,
         type: 3}

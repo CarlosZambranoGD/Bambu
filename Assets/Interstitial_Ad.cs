@@ -3,6 +3,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
+using UnityEditor;
 using UnityEngine;
 
 public class Interstitial_Ad : MonoBehaviour
@@ -13,15 +14,35 @@ public class Interstitial_Ad : MonoBehaviour
 
     public bool showAd;
 
+    [Range(1,10)]
+    public int cadaXparaAds; // cada cuantas muertes o instancias muestra un Ad
+
     public void Start()
     {
 
         if (!showAd)
             return;
 
-        MobileAds.Initialize(initstatus => { });
 
-        RequestRewardedVideo();
+        GlobalValue.adsCount++;
+
+
+        Debug.Log("Ads Count: " + GlobalValue.adsCount);
+
+        if(GlobalValue.adsCount >= cadaXparaAds)
+        {
+            GlobalValue.adsCount = 0;
+
+            MobileAds.Initialize(initstatus => { });
+
+            RequestRewardedVideo();
+        }
+        else
+        {
+            showAd = false;
+        }
+
+       
 
 
     }
@@ -30,6 +51,10 @@ public class Interstitial_Ad : MonoBehaviour
 
     public void Update()
     {
+
+        if (!showAd)
+            return;
+
         if (rewardedAd.IsLoaded())
         {
             if (!AdShowed)
@@ -106,12 +131,12 @@ public class Interstitial_Ad : MonoBehaviour
 
     void HandleUserEarnedReward(object sender, Reward args)
     {
-        
-       
-
-      
 
 
+
+        GlobalValue.adsCountForRewards++;
+
+        Menu_GUI.Instance.AdsCountObj.SetActive(true);
 
 
     }

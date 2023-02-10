@@ -99,6 +99,7 @@ public class Rewarded_Ad : MonoBehaviour
      void HandleUserEarnedReward(object sender, Reward args)
     {
         GlobalValue.SaveLives += 3;
+        GlobalValue.adsCount = 0;
         Debug.Log("Has Ganado 3 vidas");
 
         if(Menu_AskSaveMe.instance != null)
