@@ -19,7 +19,7 @@ public class Menu_Gameover : MonoBehaviour {
     {
         Debug.Log("GameOver Activado, Vidas: " + GlobalValue.SaveLives);
 
-        if(GlobalValue.SaveLives <= 0)
+        if(GlobalValue.SaveLives  <= 0)
         {
             AskSaveMe.SetActive(true);
         }
@@ -30,16 +30,18 @@ public class Menu_Gameover : MonoBehaviour {
     {
         btnNext.SetActive(GlobalValue.levelPlaying < GlobalValue.LevelHighest);
 
-        if(GlobalValue.SaveLives <= 0)
-        {
-            btnTry.SetActive(false);
-            btnAds.SetActive(true);
-        }
-        else
-        {
-            btnTry.SetActive(true);
-            btnAds.SetActive(false);
-        }
+        //if(GlobalValue.SaveLives <= 0)
+        //{
+        //    btnTry.SetActive(false);
+        //    btnAds.SetActive(true);
+        //}
+        //else
+        //{
+        //    btnTry.SetActive(true);
+        //    btnAds.SetActive(false);
+        //}
+
+        btnTry.SetActive(true);
 
         instance = this;
 
@@ -47,7 +49,20 @@ public class Menu_Gameover : MonoBehaviour {
 
     public void TryAgain()
     {
-        GameManager.Instance.ResetLevel();
+
+        if(GlobalValue.SaveLives >= 1)
+        {
+            Debug.Log("Continuar");
+            GameManager.Instance.Continue();
+        }
+        else
+        {
+            Debug.Log("Reiniciar");
+            GameManager.Instance.ResetLevel();
+        }
+        gameObject.SetActive(false);
+
+        
     }
 
     public void Ad_RBton()

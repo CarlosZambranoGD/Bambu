@@ -93,8 +93,8 @@ public class GameManager : MonoBehaviour
         }
 
         var checkpoint = GameObject.FindGameObjectWithTag("StartPoint");
-        if (checkpoint)
-            Player.transform.position = checkpoint.transform.position;
+        //if (checkpoint)
+        //    Player.transform.position = checkpoint.transform.position;
     }
 
     private void OnEnable()
@@ -131,6 +131,7 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
+        
         menuManager = FindObjectOfType<MenuManager>();
         currentCheckpoint = Player.transform.position;
 
@@ -189,7 +190,11 @@ public class GameManager : MonoBehaviour
 
     public void SaveCheckPoint(Vector2 newCheckpoint)
     {
+        Debug.Log("Saving Check Point");
         currentCheckpoint = newCheckpoint;
+        PlayerPrefs.SetFloat("xCheck",currentCheckpoint.x);
+        PlayerPrefs.SetFloat("yCheck",currentCheckpoint.y);
+       
         LevelManager.Instance.SetCheckpointTimer();     //save current timer for the checkpoint
     }
 
@@ -300,6 +305,7 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    [ContextMenu("Continue")]
     public void Continue()
     {
         StartCoroutine(ContinueCo());

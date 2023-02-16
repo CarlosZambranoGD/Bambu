@@ -143,6 +143,14 @@ public class Player : MonoBehaviour, ICanTakeDamage, IListener, ICanFreeze
         godAudioSource.volume = 0;
 
         frozenObjFX.SetActive(false);
+
+        Debug.Log("Check P pos: " + GameManager.Instance.currentCheckpoint);
+
+        if(GameManager.Instance.currentCheckpoint != Vector2.zero)
+        {
+            Debug.Log("Loading checlPoint....");
+            transform.position = GameManager.Instance.currentCheckpoint;
+        }
     }
 
     bool allowCheckWall = true;
@@ -952,6 +960,8 @@ public class Player : MonoBehaviour, ICanTakeDamage, IListener, ICanFreeze
 
         if (collision.CompareTag("Checkpoint"))
         {
+            Debug.Log("Check Point!!!!");
+
             var hitGround = Physics2D.Raycast(collision.transform.position, Vector2.down, 100, GameManager.Instance.groundLayer);
 
             if (hitGround)
