@@ -305,6 +305,16 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    [ContextMenu("Open SaveMe")]
+    public void OpenSaveMePanel()
+    {
+        ControllerInput.Instance.StopMove();
+        MenuManager.Instance.GUI.SetActive(false && !hideGUI);
+        SoundManager.Instance.PauseMusic(true);
+        MenuManager.Instance.OpenSaveMe(true);
+    }
+
+
     [ContextMenu("Continue")]
     public void Continue()
     {

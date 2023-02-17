@@ -49,6 +49,7 @@ public class Menu_Gameover : MonoBehaviour {
 
     public void TryAgain()
     {
+        Debug.Log("Lives on tryBton: " + GlobalValue.SaveLives);
 
         if(GlobalValue.SaveLives >= 1)
         {

@@ -224,8 +224,8 @@ public class MenuManager : MonoBehaviour
         yield return new WaitForSeconds(time);
 
         //show ads
-        Gameover.SetActive(true);
         GlobalValue.SaveLives--;
+        Gameover.SetActive(true);
     }
 
     public void ForceFinishLevel()

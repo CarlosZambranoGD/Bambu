@@ -14,6 +14,9 @@ public class Rewarded_Ad : MonoBehaviour
 
     public void Start()
     {
+
+        Debug.Log("Opening REwarded Ad: " + gameObject.name);
+
         MobileAds.Initialize(initstatus => { });
 
         RequestRewardedVideo();
@@ -102,14 +105,16 @@ public class Rewarded_Ad : MonoBehaviour
         GlobalValue.adsCount = 0;
         Debug.Log("Has Ganado 3 vidas");
 
-        if(Menu_AskSaveMe.instance != null)
-        {
-            Menu_AskSaveMe.instance.Continue();
-        }
-        else
-        {
-            Menu_Gameover.instance.TryAgain();
-        }
+        Menu_Gameover.instance.TryAgain();
+
+        //if (Menu_AskSaveMe.instance != null)
+        //{
+        //    Menu_AskSaveMe.instance.Continue();
+        //}
+        //else
+        //{
+            
+        //}
         
 
         

@@ -59,6 +59,9 @@ public class Menu_AskSaveMe : MonoBehaviour
             btnSaveByCoin.interactable = true;
         }
 
+        timerImage.fillAmount = 1;
+        btnWatchVideoAd.gameObject.SetActive(true);
+
     }
 
     private void Update()
@@ -74,7 +77,8 @@ public class Menu_AskSaveMe : MonoBehaviour
             GameManager.Instance.GameOver(true);
             Time.timeScale = 1;
             MenuManager.Instance.OpenSaveMe(false);
-            Destroy(this);      //destroy this script
+            // Destroy(this);      //destroy this script
+            gameObject.SetActive(false);
         }
     }
 
