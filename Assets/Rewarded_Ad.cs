@@ -10,7 +10,7 @@ public class Rewarded_Ad : MonoBehaviour
 {
     private RewardedAd rewardedAd;
     bool AdShowed;
-    public string ad_ID = "ca-app-pub-3940256099942544/5224354917";
+    public string ad_ID = "ca-app-pub-2773744325264902/9872569675";
 
     public void Start()
     {
