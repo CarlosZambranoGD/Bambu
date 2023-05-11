@@ -8,15 +8,21 @@ using UnityEngine.SceneManagement;
 public class APIRequestNetgamez : MonoBehaviour
 {
     public Text log;
+    Text textInfo;
+    InputField inputText;
     void Start()
     {
+        textInfo = gameObject.GetComponent<AuthNetgamez>().textInfo;
+        inputText = gameObject.GetComponent<AuthNetgamez>().inputText;
         StartCoroutine(Upload());
     }
 
     IEnumerator Upload() {
     WWWForm form = new WWWForm();
     form.AddField("metodo", "RenovarSesion");
-    form.AddField("SesionID", GlobalValue.token);
+    form.AddField("SesionID", PlayerPrefs.GetString("token"));
+    Debug.Log(PlayerPrefs.GetString("token"));
+    textInfo.text = "Accediendo a juego";
 
     using (UnityWebRequest www = UnityWebRequest.Post("https://facilservicios.com/servicioDesarrollo.php", form)) {
 
@@ -24,6 +30,11 @@ public class APIRequestNetgamez : MonoBehaviour
 
         if (www.result != UnityWebRequest.Result.Success) {
                 log.text = www.error;
+                PlayerPrefs.SetString("token", "");
+                textInfo.text = "ha habido un problema de conexión, intentalo nuevamente";
+                yield return new WaitForSeconds(2);
+                gameObject.GetComponent<IntroManager>().screenInfo(1);
+                gameObject.GetComponent<AuthNetgamez>().Focus = true;
             }
 
         else {
@@ -33,13 +44,16 @@ public class APIRequestNetgamez : MonoBehaviour
             int saldo = 0;
 
             if(data["Error"] == "-1"){
-                //Debug.Log(www.downloadHandler.text);
-                gameObject.GetComponent<AuthNetgamez>().log.GetComponent<Text>().text = data["ErrorDescripcion"];
-                gameObject.GetComponent<AuthNetgamez>().Exit.SetActive(true);
+                PlayerPrefs.SetString("token", "");
+                textInfo.text = data["ErrorDescripcion"];
+                yield return new WaitForSeconds(2);
+                gameObject.GetComponent<IntroManager>().screenInfo(1);
+                gameObject.GetComponent<AuthNetgamez>().Focus = true;
+
             }
 
             else {
-                gameObject.GetComponent<AuthNetgamez>().log.GetComponent<Text>().text = "Obteniendo acceso...";
+                //gameObject.GetComponent<AuthNetgamez>().log.GetComponent<Text>().text = "Obteniendo acceso...";
                 for (int i = 0; i < data["ListaObjetos"].Count; i++){
                 JSONNode datos = data["ListaObjetos"][i];      
                     
@@ -61,7 +75,7 @@ public class APIRequestNetgamez : MonoBehaviour
                 }
 
             GlobalValue.NZCoins = saldo;
-            gameObject.GetComponent<AuthNetgamez>().log.GetComponent<Text>().text = "Abriendo juego";
+            //gameObject.GetComponent<AuthNetgamez>().log.GetComponent<Text>().text = "Abriendo juego";
             yield return new WaitForSeconds(2);
             SceneManager.LoadScene("MainMenu");
 

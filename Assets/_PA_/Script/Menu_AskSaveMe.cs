@@ -34,6 +34,8 @@ public class Menu_AskSaveMe : MonoBehaviour
             Time.timeScale = 0;
             btnSaveByCoin.interactable = GlobalValue.SavedCoins >= GameManager.Instance.continueCoinCost;
 #if UNITY_ANDROID || UNITY_IOS
+            btnWatchVideoAd.interactable = false;
+            btnWatchVideoAd.gameObject.SetActive(false);
             //btnWatchVideoAd.interactable = AdsManager.Instance && AdsManager.Instance.isRewardedAdReady();
 #else
             btnWatchVideoAd.interactable = false;
